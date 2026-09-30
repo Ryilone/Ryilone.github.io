@@ -7,6 +7,16 @@
   <meta name="description" content="Turki builds careful, native-feeling software: an iPhone macro tracker, a campus schedule app, Spotify overlays, and developer tools.">
   <meta name="theme-color" content="#F3EEE5" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://ryilone.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ryilone.github.io/">
+  <meta property="og:title" content="Turki — Software">
+  <meta property="og:description" content="Small, careful software: a native iPhone macro tracker, a campus schedule app, Spotify overlays and developer tools.">
+  <meta property="og:image" content="https://ryilone.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Turki. Small, careful software, built for my own life.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,80 +46,86 @@
         <span class="count">04</span>
       </div>
 
-      <article class="project">
+      <article class="project" data-reveal>
         <div class="project-meta">
           <span class="index">01</span>
           <span class="status">Shipped · Build 17</span>
         </div>
         <div class="project-body">
-          <h3>MacroMaxx</h3>
+          <h3><a href="work/macromaxx.html">MacroMaxx</a></h3>
           <p class="tagline">A macro tracker that runs natively on my iPhone, and works offline.</p>
           <p>Built in SwiftUI with the full USDA Branded Foods database stored on the device in SQLite, so search works without a connection. Barcode scans get a Nutri-Score 2023 grade ported from Open Food Facts. Menus from seven restaurant chains (1,054 items) are parsed straight from their nutrition PDFs. It reads weigh-ins from Apple Health and has a home-screen widget. I've shipped seventeen builds to my phone, and a daily job re-signs the app so it never expires.</p>
           <ul class="stack" aria-label="Built with">
             <li>SwiftUI</li><li>SQLite</li><li>HealthKit</li><li>WidgetKit</li><li>Python</li>
           </ul>
+          <div class="media phones">
+            <img src="assets/macromaxx-today.webp" width="720" height="1565" loading="lazy" alt="MacroMaxx Today screen: a calorie ring showing 719 kcal left of 1,600, with protein and carb rings below.">
+            <img src="assets/macromaxx-trends.webp" width="720" height="1565" loading="lazy" alt="MacroMaxx Trends screen: a weekly food score of 98 and daily calorie bars against a goal line.">
+          </div>
+          <a class="text-link read-more" href="work/macromaxx.html">Read the case study →</a>
         </div>
-        <figure class="motif" aria-hidden="true">
-          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="46"/><circle cx="60" cy="60" r="32"/><circle cx="60" cy="60" r="18"/><path class="accent" d="M60 14a46 46 0 0 1 43.7 60.2"/><path class="accent" d="M60 28a32 32 0 0 1 22.6 54.6"/><path class="accent" d="M60 42a18 18 0 0 1 17.1 23.6"/></svg>
-        </figure>
       </article>
 
-      <article class="project">
+      <article class="project" data-reveal>
         <div class="project-meta">
           <span class="index">02</span>
           <span class="status">In progress</span>
         </div>
         <div class="project-body">
-          <h3>ClassPath</h3>
+          <h3><a href="work/classpath.html">ClassPath</a></h3>
           <p class="tagline">What class is next, and when do I need to leave?</p>
           <p>A campus app for LMU built with Expo and React Native. It keeps your schedule locally in SQLite, combines it with a campus data pack of buildings and walking routes, and tells you when to leave for your next class. It follows a strict design contract: every color has exactly one meaning, and it never shows made-up campus data or uses color as the only signal.</p>
           <ul class="stack" aria-label="Built with">
             <li>Expo</li><li>React Native</li><li>TypeScript</li><li>SQLite</li>
           </ul>
+          <div class="media phones">
+            <img src="assets/classpath-today.webp" width="720" height="1561" loading="lazy" alt="ClassPath Today screen showing the next class, CMSI 2120 Data Structures at 10:00 in Sample Hall.">
+            <img src="assets/classpath-schedule.webp" width="720" height="1561" loading="lazy" alt="ClassPath Schedule screen listing classes with colored edges, times and locations.">
+          </div>
+          <a class="text-link read-more" href="work/classpath.html">Read the case study →</a>
         </div>
-        <figure class="motif" aria-hidden="true">
-          <svg viewBox="0 0 120 120"><path d="M20 96c18 0 18-30 40-30s24-34 40-44"/><circle cx="20" cy="96" r="4"/><circle class="fill-accent" cx="100" cy="22" r="5"/><path class="accent dashed" d="M20 96c18 0 18-30 40-30"/></svg>
-        </figure>
       </article>
 
-      <article class="project">
+      <article class="project" data-reveal>
         <div class="project-meta">
           <span class="index">03</span>
-          <span class="status">Mod · Desktop · macOS</span>
+          <span class="status">Mod · Desktop · Mac</span>
         </div>
         <div class="project-body">
-          <h3>SpotiHUD</h3>
+          <h3><a href="work/spotihud.html">SpotiHUD</a></h3>
           <p class="tagline">What's playing on Spotify, shown wherever I'm looking.</p>
           <p>It started as a Minecraft Fabric mod that signs in to Spotify with PKCE and draws the current track on the in-game HUD. It grew into a desktop overlay built with Tauri and Rust, and then a SwiftUI version of the Dynamic Island for the Mac notch. That one's equalizer reacts to the actual music: it captures system audio with Core Audio and splits it into frequency bands with an FFT.</p>
           <ul class="stack" aria-label="Built with">
             <li>Java</li><li>Fabric</li><li>Rust</li><li>Tauri</li><li>Swift</li><li>Core Audio</li>
           </ul>
+          <div class="media wide">
+            <img src="assets/spotihud-aurora.webp" width="1080" height="396" loading="lazy" alt="SpotiHUD desktop overlay showing album art, track name, equalizer bars, progress and playback controls.">
+          </div>
+          <a class="text-link read-more" href="work/spotihud.html">Read the case study →</a>
         </div>
-        <figure class="motif" aria-hidden="true">
-          <svg viewBox="0 0 120 120"><g class="bars"><rect x="22" y="52" width="8" height="16" rx="4"/><rect x="38" y="36" width="8" height="48" rx="4"/><rect class="fill-accent" x="54" y="24" width="8" height="72" rx="4"/><rect x="70" y="40" width="8" height="40" rx="4"/><rect x="86" y="50" width="8" height="20" rx="4"/></g></svg>
-        </figure>
       </article>
 
-      <article class="project">
+      <article class="project" data-reveal>
         <div class="project-meta">
           <span class="index">04</span>
           <span class="status">v1.2</span>
         </div>
         <div class="project-body">
-          <h3>OSINT Panel</h3>
+          <h3><a href="work/osint-panel.html">OSINT Panel</a></h3>
           <p class="tagline">A terminal toolkit for looking things up from public sources.</p>
-          <p>A Python command-line tool with a Textual dashboard. It looks up usernames across 50+ sites, domains, IP addresses, phone numbers and email addresses. For each site, username checks report one of five results: found, not found, blocked by a bot wall, unreliable, or error. That way a CAPTCHA page never counts as a match. Domain lookups use DNS over HTTPS and find subdomains through certificate transparency logs. Every result can be exported to JSON, CSV or HTML.</p>
+          <p>A Python command-line tool with a Textual dashboard. It looks up usernames across 50+ sites, domains, IP addresses, phone numbers and email addresses. For each site, username checks report one of five results: found, not found, blocked by a bot wall, unknown, or error. That way a CAPTCHA page never counts as a match. Domain lookups use DNS over HTTPS and find subdomains through certificate transparency logs. Every result can be exported to JSON, CSV or HTML.</p>
           <ul class="stack" aria-label="Built with">
             <li>Python</li><li>Rich</li><li>Textual</li><li>httpx</li>
           </ul>
+          <div class="media wide">
+            <img src="assets/osint-ip.webp" width="1600" height="525" loading="lazy" alt="Terminal output of an IP lookup on 8.8.8.8 showing location, ISP, AS number and reverse DNS.">
+          </div>
+          <a class="text-link read-more" href="work/osint-panel.html">Read the case study →</a>
         </div>
-        <figure class="motif" aria-hidden="true">
-          <svg viewBox="0 0 120 120"><rect x="16" y="24" width="88" height="72" rx="6"/><path d="M28 46l10 8-10 8"/><path class="accent" d="M46 62h22"/><path d="M28 78h48"/></svg>
-        </figure>
       </article>
     </section>
 
-    <section id="about" class="about" aria-labelledby="about-title">
+    <section id="about" class="about" aria-labelledby="about-title" data-reveal>
       <div class="section-head">
         <h2 id="about-title">About</h2>
       </div>
@@ -123,6 +139,8 @@
   <footer class="site-footer">
     <a href="https://github.com/Ryilone" rel="me">github.com/Ryilone</a>
     <span>© 2026 Turki</span>
+    <a href="#top" class="to-top">Back to top ↑</a>
   </footer>
+  <script src="site.js" defer></script>
 </body>
 </html>

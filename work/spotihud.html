@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpotiHUD — Turki</title>
+  <meta name="description" content="A Spotify now-playing overlay built three ways: a Minecraft Fabric mod, a Tauri desktop overlay, and a SwiftUI Dynamic Island for the Mac notch.">
+  <link rel="canonical" href="https://ryilone.github.io/work/spotihud.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SpotiHUD — Turki">
+  <meta property="og:description" content="What's playing on Spotify, shown wherever I'm looking: in Minecraft, on the desktop, and in the Mac notch.">
+  <meta property="og:image" content="https://ryilone.github.io/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F3EEE5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../">Turki</a>
+    <nav aria-label="Primary">
+      <a href="../#work">Work</a>
+      <a href="../#about">About</a>
+      <a href="https://github.com/Ryilone" rel="me">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <a class="back" href="../#work">← All work</a>
+
+    <section class="case-hero">
+      <span class="index">03</span>
+      <h1>SpotiHUD</h1>
+      <p class="tagline">What's playing on Spotify, shown wherever I'm looking.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Solo</dd></div>
+        <div><dt>Platform</dt><dd>Minecraft and macOS</dd></div>
+        <div><dt>Status</dt><dd>Mod and overlays working</dd></div>
+        <div><dt>Built with</dt><dd>Java, Fabric, Rust, Tauri, Swift, Core Audio</dd></div>
+      </dl>
+    </section>
+
+    <figure class="media wide stack" data-reveal>
+      <img src="../assets/spotihud-aurora.webp" width="1080" height="396" alt="The SpotiHUD desktop overlay: album art, track title and artist, animated equalizer bars in violet, a progress bar at 1:23 of 3:34, and previous, pause and next buttons.">
+      <img src="../assets/spotihud-ember.webp" width="1080" height="396" alt="The same overlay in the orange Ember colorway.">
+      <img src="../assets/spotihud-mint.webp" width="1080" height="396" alt="The same overlay in the green Mint colorway.">
+      <figcaption>The desktop overlay in three of its seven colorways, playing a sample track.</figcaption>
+    </figure>
+
+    <section class="case-section" data-reveal>
+      <h2>The problem</h2>
+      <div class="prose">
+        <p class="lead">Checking what song is playing meant leaving whatever I was doing: a Minecraft world, a full-screen app, a game.</p>
+        <p>So I built a small now-playing display that sits where I'm already looking. Then I built it again for the desktop, and a third time for the Mac notch.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>Three versions</h2>
+      <div class="prose">
+        <h3>1. The Minecraft mod</h3>
+        <p>A Fabric mod for Minecraft 1.21 that signs in to Spotify with OAuth PKCE (no client secret stored anywhere), then draws album art, the track, a progress bar and waveform bars on the in-game HUD. It comes with a settings screen and unit tests for the auth flow, time formatting and HUD geometry.</p>
+
+        <h3>2. The desktop overlay</h3>
+        <p>A frameless, transparent, always-on-top window built with Tauri and Rust. You drag it anywhere, cycle colorways with one key, and switch click-through on so it never gets in the way. On the Mac it reads Spotify through AppleScript, because Apple closed the system Now Playing API to third-party apps in macOS 14.4.</p>
+
+        <h3>3. A Dynamic Island for the Mac</h3>
+        <p>A native SwiftUI panel pinned under the notch. It springs open on hover or when a new track starts, and its equalizer reacts to the actual music: a Core Audio process tap captures system audio, and a 1024-point FFT splits it into four bands with automatic gain control. Volume and microphone changes briefly take over the island, the way they do on an iPhone.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>What I learned</h2>
+      <div class="prose">
+        <ul>
+          <li><strong>Read the refresh spec carefully.</strong> Spotify's PKCE token refresh fails with a 400 unless <code>client_id</code> is in the body, so the mod signed people out after exactly one hour. It was an easy fix and a hard bug to find.</li>
+          <li><strong>Never block the main thread on a system prompt.</strong> The island froze while macOS was waiting on its "control Spotify" permission dialog, because AppleScript ran on the UI thread. Now every call runs in the background.</li>
+          <li><strong>Fall back gracefully.</strong> If audio capture is denied or silent, the bars switch to a gentle synthetic animation instead of lying flat.</li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="next-case" aria-label="Next project">
+      <span>Next project</span>
+      <a href="osint-panel.html">OSINT Panel →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://github.com/Ryilone" rel="me">github.com/Ryilone</a>
+    <span>© 2026 Turki</span>
+    <a href="#top" class="to-top">Back to top ↑</a>
+  </footer>
+  <script src="../site.js" defer></script>
+</body>
+</html>

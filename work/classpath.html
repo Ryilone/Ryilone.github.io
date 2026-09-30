@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClassPath — Turki</title>
+  <meta name="description" content="A campus app for LMU that answers one question: what class is next, and when do I need to leave?">
+  <link rel="canonical" href="https://ryilone.github.io/work/classpath.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ClassPath — Turki">
+  <meta property="og:description" content="What class is next, and when do I need to leave? A campus app for LMU, built with Expo and React Native.">
+  <meta property="og:image" content="https://ryilone.github.io/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F3EEE5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../">Turki</a>
+    <nav aria-label="Primary">
+      <a href="../#work">Work</a>
+      <a href="../#about">About</a>
+      <a href="https://github.com/Ryilone" rel="me">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <a class="back" href="../#work">← All work</a>
+
+    <section class="case-hero">
+      <span class="index">02</span>
+      <h1>ClassPath</h1>
+      <p class="tagline">What class is next, and when do I need to leave?</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Solo: product, design direction, code</dd></div>
+        <div><dt>Platform</dt><dd>iOS and Android via Expo, plus web</dd></div>
+        <div><dt>Status</dt><dd>In progress · routing next</dd></div>
+        <div><dt>Built with</dt><dd>Expo, React Native, TypeScript, SQLite</dd></div>
+      </dl>
+    </section>
+
+    <figure class="media phones" data-reveal>
+      <img src="../assets/classpath-today.webp" width="720" height="1561" alt="ClassPath Today screen in dark mode: a Next class card for CMSI 2120 Data Structures, 10:00 to 11:15 in Sample Hall room 112, with walking time marked not available yet.">
+      <img src="../assets/classpath-schedule.webp" width="720" height="1561" alt="ClassPath Schedule screen listing three classes, each card with a colored edge, meeting days and times, location, and Edit and Delete buttons.">
+      <figcaption>Today and Schedule, from the web preview with sample classes.</figcaption>
+    </figure>
+
+    <section class="case-section" data-reveal>
+      <h2>The problem</h2>
+      <div class="prose">
+        <p class="lead">A new campus means constantly checking your schedule, then a map, then doing the math on whether you'll make it.</p>
+        <p>ClassPath puts the answer on one screen: the class you're in now or the one coming up, where it is, and when to leave for it.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>What I built</h2>
+      <div class="prose">
+        <ul>
+          <li><strong>A schedule that stays on the phone.</strong> Classes, meeting patterns and term dates are stored locally in SQLite, with no account. Every write goes through a single connection queue, so a quick edit can never race a save.</li>
+          <li><strong>A class editor that's hard to get wrong.</strong> It validates times, supports several meeting patterns per class, and uses explicit confirmation screens rather than system alerts, which do nothing on the web.</li>
+          <li><strong>A routing engine.</strong> Campus paths compile into an immutable graph, and A* search runs on it with costs taken from the real geometry. Leave-by times come from pure functions, so they're easy to test.</li>
+          <li><strong>Campus data you can trust.</strong> Campus data arrives as packs, and a pack only activates if its SHA-256 hash matches an approved list. Until a reviewed LMU pack exists, the app says walking time isn't available instead of guessing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>The design rules</h2>
+      <div class="prose">
+        <p>I wrote a design contract before building any screens. Blue means you can tap it, green means verified, amber means timing risk and red means destructive, and no color means anything else. A course's color is a thin rail on the card edge, never a decorative swatch. Status is never shown by color alone. The contract also rules out gradients, glass effects, decorative charts, emoji icons and made-up campus content.</p>
+        <p>The honest empty states are deliberate. "Not available yet" is better than a confident wrong number when you're trying to get to an exam.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>Next</h2>
+      <div class="prose">
+        <p>Connecting the routing engine to real buildings, walking directions on the Map screen, and a reviewed LMU campus pack. The codebase currently passes 375 automated tests.</p>
+      </div>
+    </section>
+
+    <nav class="next-case" aria-label="Next project">
+      <span>Next project</span>
+      <a href="spotihud.html">SpotiHUD →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://github.com/Ryilone" rel="me">github.com/Ryilone</a>
+    <span>© 2026 Turki</span>
+    <a href="#top" class="to-top">Back to top ↑</a>
+  </footer>
+  <script src="../site.js" defer></script>
+</body>
+</html>

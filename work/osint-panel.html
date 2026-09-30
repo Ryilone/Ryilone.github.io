@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OSINT Panel — Turki</title>
+  <meta name="description" content="A Python command-line toolkit and Textual dashboard for public-source lookups, built to avoid false positives.">
+  <link rel="canonical" href="https://ryilone.github.io/work/osint-panel.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="OSINT Panel — Turki">
+  <meta property="og:description" content="A terminal toolkit for looking things up from public sources, built so a CAPTCHA page never counts as a match.">
+  <meta property="og:image" content="https://ryilone.github.io/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F3EEE5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../">Turki</a>
+    <nav aria-label="Primary">
+      <a href="../#work">Work</a>
+      <a href="../#about">About</a>
+      <a href="https://github.com/Ryilone" rel="me">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <a class="back" href="../#work">← All work</a>
+
+    <section class="case-hero">
+      <span class="index">04</span>
+      <h1>OSINT Panel</h1>
+      <p class="tagline">A terminal toolkit for looking things up from public sources.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Solo</dd></div>
+        <div><dt>Platform</dt><dd>Command line and terminal dashboard</dd></div>
+        <div><dt>Status</dt><dd>v1.2</dd></div>
+        <div><dt>Built with</dt><dd>Python, Rich, Textual, httpx, dnspython</dd></div>
+      </dl>
+    </section>
+
+    <figure class="media wide" data-reveal>
+      <img src="../assets/osint-ip.webp" width="1600" height="525" alt="Terminal output of osint.py ip 8.8.8.8: location Ashburn, Virginia, ISP Google LLC, organization Google Public DNS, AS15169, reverse DNS dns.google, and flags for proxy and hosting.">
+      <figcaption>A lookup on Google's public DNS resolver, 8.8.8.8.</figcaption>
+    </figure>
+
+    <section class="case-section" data-reveal>
+      <h2>The problem</h2>
+      <div class="prose">
+        <p class="lead">Public-source research means juggling a dozen websites, and half of them give you a wrong answer without saying so.</p>
+        <p>I wanted one fast tool with honest results, output I could pipe into other tools, and a dashboard for when I'd rather not remember flags.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>What I built</h2>
+      <div class="prose">
+        <ul>
+          <li><strong>Five modules:</strong> usernames across 50+ sites, email, domain, IP and phone numbers.</li>
+          <li><strong>One pipeline, many outputs.</strong> Each module gathers its data once and returns a structured result that renders as a Rich table, feeds the Textual dashboard, or exports to JSON, CSV or a standalone HTML report.</li>
+          <li><strong>Domain lookups that work on filtered networks.</strong> DNS runs over HTTPS by default, and subdomains come from both a wordlist and certificate transparency logs, resolved concurrently with a sensible cap.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>The hard part</h2>
+      <div class="prose">
+        <h3>Not lying about matches</h3>
+        <p>Most username checkers treat any page that loads as "found". That breaks in two ways: bot walls like Cloudflare's "Just a moment…" page look like a profile, and some sites return the same page whether an account exists or not.</p>
+        <p>Every site check here returns one of five states: <strong>found</strong>, <strong>not found</strong>, <strong>blocked</strong> by a bot wall, <strong>unknown</strong> for sites that can't be checked reliably, or <strong>error</strong>. I built each site's markers from live probes. With a made-up handle the tool reports zero matches, and on a well-known account it separates 20 real matches from 16 bot walls instead of counting all 36.</p>
+        <p>The tool only reads what's publicly visible. It never logs in, and it doesn't try to get past a bot wall. It reports the wall and moves on.</p>
+      </div>
+    </section>
+
+    <nav class="next-case" aria-label="Next project">
+      <span>Back to the start</span>
+      <a href="macromaxx.html">MacroMaxx →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://github.com/Ryilone" rel="me">github.com/Ryilone</a>
+    <span>© 2026 Turki</span>
+    <a href="#top" class="to-top">Back to top ↑</a>
+  </footer>
+  <script src="../site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MacroMaxx — Turki</title>
+  <meta name="description" content="A native iPhone macro tracker with offline USDA search, barcode scanning, a Nutri-Score port and restaurant menus parsed from PDFs.">
+  <link rel="canonical" href="https://ryilone.github.io/work/macromaxx.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MacroMaxx — Turki">
+  <meta property="og:description" content="A native iPhone macro tracker that works offline. Seventeen builds shipped to my own phone.">
+  <meta property="og:image" content="https://ryilone.github.io/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F3EEE5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../">Turki</a>
+    <nav aria-label="Primary">
+      <a href="../#work">Work</a>
+      <a href="../#about">About</a>
+      <a href="https://github.com/Ryilone" rel="me">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <a class="back" href="../#work">← All work</a>
+
+    <section class="case-hero">
+      <span class="index">01</span>
+      <h1>MacroMaxx</h1>
+      <p class="tagline">A macro tracker that runs natively on my iPhone, and works offline.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Solo: design and code</dd></div>
+        <div><dt>Platform</dt><dd>iPhone, plus a web version</dd></div>
+        <div><dt>Status</dt><dd>In daily use · build 17</dd></div>
+        <div><dt>Built with</dt><dd>SwiftUI, SQLite, HealthKit, WidgetKit, Python</dd></div>
+      </dl>
+    </section>
+
+    <figure class="media phones" data-reveal>
+      <img src="../assets/macromaxx-today.webp" width="720" height="1565" alt="MacroMaxx Today screen in dark mode: a large calorie ring showing 719 kcal left of a 1,600 goal, with green protein and blue carb rings below.">
+      <img src="../assets/macromaxx-trends.webp" width="720" height="1565" alt="MacroMaxx Trends screen: a weekly food score of 98 and bar charts of daily calories and protein against dashed goal lines.">
+      <figcaption>Today and Trends, from the iOS simulator with sample data.</figcaption>
+    </figure>
+
+    <section class="case-section" data-reveal>
+      <h2>The problem</h2>
+      <div class="prose">
+        <p class="lead">Every tracker I tried either wanted a subscription, needed a connection to search foods, or quietly showed a zero when it simply didn't know a number.</p>
+        <p>I wanted something fast and honest that I'd actually open three times a day. So I built my own, then kept going until it was better than the apps I'd stopped using.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>What I built</h2>
+      <div class="prose">
+        <ul>
+          <li><strong>Offline search.</strong> The full USDA Branded Foods database lives on the phone in SQLite, alongside USDA's common foods. A weekly job checks for new USDA releases.</li>
+          <li><strong>Barcode scanning with a real score.</strong> Scans pull from Open Food Facts. When a product has no published grade, the app calculates Nutri-Score 2023 itself, then combines it with processing level, additives and organic status into a 0–100 score.</li>
+          <li><strong>Restaurant menus.</strong> 1,054 items from seven chains, read from their own nutrition pages and PDFs. Every item keeps the page it came from and the date it was read.</li>
+          <li><strong>The rest of daily life.</strong> Weigh-ins from Apple Health, a home-screen widget, a "What fits" view that lists foods that fit what's left today, and a list of foods to avoid that flags ingredients on a scan.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>The hard parts</h2>
+      <div class="prose">
+        <h3>Porting Nutri-Score, rule for rule</h3>
+        <p>I ported Open Food Facts' own Nutri-Score 2023 implementation to Swift, including the special rules for drinks, cheese, fats and red meat. To check it, I compared my grades against the ones Open Food Facts publishes. They matched on 184 of 185 products that have categories, and 48 of those became a permanent test fixture.</p>
+
+        <h3>Never showing a fake zero</h3>
+        <p>A food with no fiber listed hasn't told you it has zero fiber. The data model keeps "unknown" and "zero" separate all the way through, scaling stays unit-safe, and the screen says when a total is missing data. The scanner never calls a product "safe". It lists what it could check and names what the label couldn't answer.</p>
+
+        <h3>Shipping to my phone without a paid developer account</h3>
+        <p>Apps signed with a free account expire after seven days. A daily background job on my Mac re-signs the app when fewer than two and a half days are left. Every install backs up the app's data first and compares file hashes afterwards, so a build can never lose my history. I've shipped seventeen builds this way.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-reveal>
+      <h2>Next</h2>
+      <div class="prose">
+        <p>Camera scanning on the phone itself, so far tested on the simulator, and more restaurant chains as they publish ingredient-level data.</p>
+      </div>
+    </section>
+
+    <nav class="next-case" aria-label="Next project">
+      <span>Next project</span>
+      <a href="classpath.html">ClassPath →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://github.com/Ryilone" rel="me">github.com/Ryilone</a>
+    <span>© 2026 Turki</span>
+    <a href="#top" class="to-top">Back to top ↑</a>
+  </footer>
+  <script src="../site.js" defer></script>
+</body>
+</html>
