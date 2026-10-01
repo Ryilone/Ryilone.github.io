@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Turki Alzaid Resume</title>
+<style>
+  @page { size: Letter; margin: 0.42in 0.5in; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 9.3pt; line-height: 1.27; color: #111; font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; }
+  h1 { margin: 0; font-size: 19pt; letter-spacing: -0.2pt; }
+  .role { margin: 1pt 0 3pt; font-size: 10.5pt; }
+  .contact { margin: 0 0 6pt; font-size: 9.2pt; }
+  .contact a { color: #111; text-decoration: none; }
+  h2 { margin: 6.5pt 0 2.5pt; padding-bottom: 1.5pt; border-bottom: 0.8pt solid #111; font-size: 10pt; text-transform: uppercase; letter-spacing: 0.6pt; }
+  p { margin: 0 0 3pt; }
+  .item { margin: 0 0 3.5pt; }
+  .row { display: flex; justify-content: space-between; gap: 12pt; }
+  .row b { font-weight: 700; }
+  .sub { font-style: italic; }
+  ul { margin: 1.5pt 0 0; padding-left: 13pt; }
+  li { margin: 0 0 1.5pt; }
+  .skills p { margin: 0 0 1.5pt; }
+</style>
+</head>
+<body>
+  <h1>Turki Alzaid</h1>
+  <p class="role">Computer Science Student | Software Engineering</p>
+  <p class="contact">Los Angeles, CA | <a href="mailto:talzaid@lion.lmu.edu">talzaid@lion.lmu.edu</a> | <a href="https://github.com/ryilone">github.com/ryilone</a> | <a href="https://ryilone.github.io">ryilone.github.io</a> | LinkedIn: Turki Al Zaid</p>
+  <p>Computer Science student at Loyola Marymount University building mobile, desktop, and game-systems software with AI coding agents. Defines requirements and architecture, directs and reviews implementation, debugs complex behavior, and verifies work with automated tests.</p>
+
+  <h2>Education</h2>
+  <div class="item">
+    <div class="row"><span><b>Loyola Marymount University</b> - Frank R. Seaver College of Science and Engineering</span><span>Expected 2030</span></div>
+    <p>Bachelor of Science in Computer Science | Started Fall 2026</p>
+    <p>Relevant study: Software engineering, programming, calculus, web fundamentals, SDLC, and requirements engineering</p>
+  </div>
+
+  <h2>Experience</h2>
+  <div class="item">
+    <div class="row"><span><b>Aida Designs</b> - Designer's Assistant Intern</span><span>Los Angeles, CA | June 2024</span></div>
+    <ul>
+      <li>Supported architectural designers through blueprint reading, AutoCAD, Excel, site visits, client communication, team meetings, and supplier coordination.</li>
+      <li>Worked with pricing forms, project constraints, client expectations, budgeting, billing, and custom-manufacturing coordination.</li>
+    </ul>
+  </div>
+
+  <h2>Selected Projects</h2>
+  <div class="item">
+    <div class="row"><span><b>MacroMaxx</b> - Native iPhone Nutrition Tracker</span><span class="sub">Product and Technical Lead | AI-assisted development</span></div>
+    <ul>
+      <li>Defined and directed an offline-first SwiftUI app with the full USDA Branded Foods database on device (SQLite), barcode lookup through Open Food Facts, HealthKit weigh-ins, a WidgetKit widget, and 1,054 restaurant items parsed from chains' published nutrition PDFs.</li>
+      <li>Specified a Nutri-Score 2023 port and validated it against Open Food Facts' published grades (184 of 185 matched); 370 core tests passing. Shipped 17 builds to a personal iPhone with automated re-signing and hash-verified data backups before each install.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><span><b>E.V.I.E.</b> - Voice-First AI Assistant for Windows and macOS</span><span class="sub">Project Lead | AI-assisted development</span></div>
+    <ul>
+      <li>Defined architecture for a Windows desktop assistant using Tauri 2, React, TypeScript, Python, Rust, Whisper, Piper TTS, Claude, Ollama, Graphiti, and Neo4j.</li>
+      <li>Directed and reviewed a typed local protocol, event-driven overlay, process lifecycle controls, system status/shutdown, and orphan-process prevention; validated 136/136 backend tests and four Rust tests.</li>
+      <li>Rebuilt it as a dependency-free native macOS app in Swift (about 5,400 lines) with a global shortcut, on-demand dictation, approval gates for file changes, and editable reusable skills.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><span><b>ClassPath</b> - Campus Scheduling and Navigation App</span><span class="sub">Product and Technical Lead | AI-assisted development</span></div>
+    <ul>
+      <li>Defined requirements and directed implementation of graph-based campus routing, schedule timing, Today/Schedule screens, class editing, and local SQLite persistence.</li>
+      <li>Reviewed routing validation, hash-approved campus data packs, schedule storage, navigation guards, accessibility requirements, and browser-preview behavior; verified 375 passing automated tests.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><span><b>NebulaOpen</b> - Minecraft Navigation and Pathfinding</span><span class="sub">Technical Lead | AI-assisted development</span></div>
+    <ul>
+      <li>Directed debugging and review of Java pathfinding systems involving route anchors, ledges, corridors, terrain classification, collision-aware movement, and camera arbitration.</li>
+      <li>Specified and validated camera snap-back fixes and regression cases for walled passages, ledges, and bridges; verified with 886 passing tests.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><span><b>Zero</b> - Minecraft Client Prediction Systems</span><span class="sub">Systems Project | AI-assisted development</span></div>
+    <ul>
+      <li>Defined and reviewed authoritative-server versus predicted-client state handling, optimistic replay, state reconciliation, timeout behavior, and lifecycle queue clearing across Java/Kotlin modules.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="row"><span><b>SpotiHUD</b> - Spotify Overlay for Minecraft and macOS</span><span class="sub">AI-assisted development</span></div>
+    <ul>
+      <li>Fabric mod with Spotify OAuth PKCE sign-in, a Tauri/Rust always-on-top desktop overlay, and a SwiftUI notch display whose equalizer uses a Core Audio tap and FFT.</li>
+    </ul>
+  </div>
+
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <p><b>Languages:</b> Swift, Java, TypeScript, JavaScript, Python, Rust</p>
+    <p><b>Frameworks and tools:</b> SwiftUI, React, React Native, Expo, Tauri, Vite, Fabric, Gradle, Xcode, Git, PowerShell</p>
+    <p><b>Systems:</b> Automated and regression testing, debugging, pathfinding, state reconciliation, process lifecycle management, local protocols, offline data, AI and voice integration</p>
+    <p><b>Other:</b> SQLite, HealthKit, Neo4j, Graphiti, Whisper, Piper TTS, Ollama, AutoCAD, Microsoft Excel</p>
+  </div>
+</body>
+</html>
