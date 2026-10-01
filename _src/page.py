@@ -18,7 +18,7 @@ head = """<!doctype html>
   <meta name="theme-color" content="#F6F3EE" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#101318" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v={ver}">
 </head>
 <body>
   <div class="wrap">
@@ -44,8 +44,8 @@ for src in sorted((root / "_src/pages").glob("*.html")):
     text = src.read_text()
     meta = dict(re.findall(r"^<!-- (\w+): (.*?) -->$", text, re.M))
     body = re.sub(r"^<!-- \w+: .*? -->\n", "", text, flags=re.M)
-    scripts = "".join('  <script src="../js/%s.js" defer></script>\n' % n.strip()
+    scripts = "".join('  <script src="../js/%s.js?v=20260930" defer></script>\n' % n.strip()
                       for n in meta.pop("scripts", "").split(",") if n.strip())
     out = root / "work" / src.name
-    out.write_text(head.format(slug=src.stem, **meta) + body + foot.replace("</body>", scripts + "</body>"))
+    out.write_text(head.format(slug=src.stem, ver="20260930", **meta) + body + foot.replace("</body>", scripts + "</body>"))
     print("wrote", out.relative_to(root))
